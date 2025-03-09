@@ -1,0 +1,339 @@
+<div id="worr" style="font-size:70px;background:#000000;" >
+
+</div>
+
+
+<span id="word" style="">{{Word}}</span>
+<a href="" id="link"></a>
+
+
+
+<audio autoplay id="aud" >
+<source id="sou" type="audio/mpeg">
+</audio>
+
+<div id="stat" style="visibility:hidden">
+
+</div>
+<input type="image" src="https://cdn-icons-png.freepik.com/512/10264/10264099.png" name="saveForm" width=30 id="button"/>
+
+
+
+<script>
+if(localStorage.getItem("highscore")==null ){
+localStorage.setItem("highscore", 0);
+}
+if(localStorage.getItem("color")==null ){
+localStorage.setItem("color", 0);
+
+} 
+color=[
+"#FFFFFF",
+"#EEEEEE",
+"#728FCE",
+"#000080",
+"#14A3C7",
+"#22CE83",
+"#16F529",
+"#FF6700",
+"#FD1C03",
+"#E2F516"
+
+]
+
+document.getElementById('button').onclick = function() {
+   localStorage.setItem("wall", 0);
+localStorage.setItem("color", 0);
+localStorage.setItem("highscore", 0);
+};
+window.onload = function(){
+
+var worr=document.getElementById("worr");
+worr.style.border="5px outset "+color[parseInt(localStorage.getItem("color"))]
+
+
+}
+
+var worr = document.getElementById("worr");
+
+
+
+ore=[[
+"https://audio.jukehost.co.uk/72rYFjx0OtC6E1NcTQU1cTyMo0qjmXdf",
+"https://audio.jukehost.co.uk/WOYxrpOGsbZDvYFmqaX6lQRHvJ0h2rWW",
+"https://audio.jukehost.co.uk/yDU0CQiZybm10y3lYn8HIPjcgb0u8TDZ",
+"https://audio.jukehost.co.uk/JOfIuhuifeV5g2rzQ5oJIhHAALxehqze",
+"https://audio.jukehost.co.uk/rffwQbQSeHuxBBVhZ8g5FkqroAxPuKaw",
+"https://audio.jukehost.co.uk/USm1Gng3VjL0LJ7mWyfhjs95j0UihuQu",
+"https://audio.jukehost.co.uk/Y2LekRX7X90F3eLAETEMfEKZiSDpZsET",
+"https://audio.jukehost.co.uk/uq6QawMncHVoQBQlRyePh3AQZhxXyOXT",
+"https://audio.jukehost.co.uk/8UbmocSSBzWXpqZmKdsVvsKMLLR1Irpn",
+"https://audio.jukehost.co.uk/EGrNSyRT98GegrSbaAbwYxIxZJ9PKg0L",
+"https://audio.jukehost.co.uk/HNvA93eUsiQEkX2O11MEHa2rnKrHEqba",
+"https://audio.jukehost.co.uk/M0Z2jPEXReLLjoCp1dQ2hpoXJIaJ0c7F",
+"https://audio.jukehost.co.uk/FJpU4K7CbqjWtFPEGKIUiaBmQB9zX6JH",
+"https://audio.jukehost.co.uk/fhqImYsdY66sgi9fu9wcaHHVnovpSCeX"
+],
+["https://audio.jukehost.co.uk/S15W27nUcxNQ4TNKhTwg9eGTqcRKrrtH",
+"https://audio.jukehost.co.uk/zEpNBQLF8yuRswRcUftGxFqgRhozU2Tl",
+"https://audio.jukehost.co.uk/q0qhSC53VKi0I7ogE2uO0O4YhKcYmnmp",
+"https://audio.jukehost.co.uk/iFdExOF78xdOi1ZkLvhpyVwYVA6Eef9A",
+"https://audio.jukehost.co.uk/lTFw7iqbjdKwmcusRBwsD7VafN7QLbLU",
+"https://audio.jukehost.co.uk/sAHiEQaeW69lKbJDwphkrb0oPBco7ZkU",
+"https://audio.jukehost.co.uk/Nz7Stt6DROxtwYG4Fax6Cm9Rg5zWsDII",
+"https://audio.jukehost.co.uk/ulrQpwHiWaqbgSi5mhgEtcgMa5pmboom",
+"https://audio.jukehost.co.uk/txLfA3356pZV2D9aNzamQ4CVqmtvmKeU",
+"https://audio.jukehost.co.uk/1mubE15BTvwAkK1rRBpFEWmj4xu72RsV",
+"https://audio.jukehost.co.uk/CcUjxFhEOVrA6um399anT4JfKlIKAFFx",
+"https://audio.jukehost.co.uk/Jy5RHDclys9Oje9KyLNbJX8dxuNZXU4I"
+],
+[
+"https://audio.jukehost.co.uk/NG4VgYs7zj0SmlQ14fhqgsp6XnFtG3xa",
+"https://audio.jukehost.co.uk/NhUnewZHXBph6gs9xwXsoVCKD0PwrwyH",
+"https://audio.jukehost.co.uk/rZsHDNn1r4ButnsCXVBREbRsLyIPP0rB",
+"https://audio.jukehost.co.uk/JVLHPjOCHGelJRSU5hYlvdtcozX3smGu",
+"https://audio.jukehost.co.uk/ryhKhfQSTO1JFrUgE4t7VA6nfcphAPtC",
+"https://audio.jukehost.co.uk/RQPo6njxyssrRMFEXsdXfgpRAC0fS0f3",
+"https://audio.jukehost.co.uk/7FYc0yX7d67reyvtO1N8BExZ8UIgWPzt",
+"https://audio.jukehost.co.uk/mz6Z6Ec2bFCbC9AD4HjWdH1zDTL1fNLa",
+"https://audio.jukehost.co.uk/O6bALAzjHwANnh8atKtDCggbXTjAh0hP",
+"https://audio.jukehost.co.uk/sJhjeRicGzcrjgg37bhVsPnvHmFjdt6E",
+"https://audio.jukehost.co.uk/VcfQOEnwbHBnUW5QaOzqM1UJOccLiwJ5"
+],
+[
+"https://audio.jukehost.co.uk/DXhcUZb2id0ZbvWyqpgoWPoKZhqMee7d",
+"https://audio.jukehost.co.uk/Ch1A7IP2MadqFNtPCZNRasF7ahr6U2wH",
+"https://audio.jukehost.co.uk/FKyos9pga3isOeQdBowZeCkA1EsEwXU0",
+"https://audio.jukehost.co.uk/xZmpHy4BWGqSAh8oI0swy1Revnl8mA0G",
+"https://audio.jukehost.co.uk/oqsOCYtoJeelVLLnCJLa2Sqpnid0Ig0F",
+"https://audio.jukehost.co.uk/sgcnV4XA3auNYx4lecnqtdK4ByPZYk1T",
+"https://audio.jukehost.co.uk/dOJ9QbnhaqtCfY6cSP6vfMKIdd5MRQzM",
+"https://audio.jukehost.co.uk/j4RsQ23zctljSGz2qFOMbJTTKjbfi0H7",
+"https://audio.jukehost.co.uk/Z6irbXJrMDdOR8zxrpBNAM0OyLZmGaS9",
+"https://audio.jukehost.co.uk/YhU2FJKRbVWrqnCDfJnUOrtVHuGasjYO",
+"https://audio.jukehost.co.uk/WmIXC0kZZ2veMUNgzM5JI1WIkvv5NnTN"
+],
+["https://audio.jukehost.co.uk/68yK7Eb9yPOA1rhe5Bup7fquaOPfrbkV",
+"https://audio.jukehost.co.uk/zs68bSshysDnkIzF7B2WsVp7ZH6uqHuj",
+"https://audio.jukehost.co.uk/XfGEEWi1ocjT9sZiySbEIftHMfj6fAhS",
+"https://audio.jukehost.co.uk/g5SJaeCDzuOKowqp0Zh3XS5gprgmiYK2",
+"https://audio.jukehost.co.uk/xNwxcry9FXDZOTanY5uBpFoZYwaYfKil",
+"https://audio.jukehost.co.uk/84jxrLME0H1kAWT99V2sBPVwDtNKfk9l",
+"https://audio.jukehost.co.uk/06YfZgCJO1zGFjOM5eFqiOSgDlniECrH",
+"https://audio.jukehost.co.uk/tg1rI0N6cCa3lZ4MxOXyuISf1S6shbYY",
+"https://audio.jukehost.co.uk/jsG4CNdzKSuk71aUtYXug18BtKp57uYv",
+"https://audio.jukehost.co.uk/5Fg9ne9uKbZbANkZo9UPGGE74wZQRj3z",
+"https://audio.jukehost.co.uk/8tgBWlwLQifWsh8gSQ8GitzZXoOjSYEB",
+"https://audio.jukehost.co.uk/aZGg7paMTA6y8xJcAi5P72wDDKdHEcHc",
+"https://audio.jukehost.co.uk/LnKAfUJiImwrxKpRrLVWrDAhqiBHEgY7"
+],
+["https://audio.jukehost.co.uk/75QWbOjjRIBM6y276GR5zWdSEC50zb34",
+"https://audio.jukehost.co.uk/vBqe8flwA4eIZokndtU6DOMUJfh0QEuP",
+"https://audio.jukehost.co.uk/lZ7bEgOapHilJ71VcZIaz94I5dz4Nlq2",
+"https://audio.jukehost.co.uk/2pY0ji37jwrvhfo1TZLdxJoA0DTDesrK",
+"https://audio.jukehost.co.uk/eJLVs6bVIYC2KpwIz8qL3johXe4yzPIO",
+"https://audio.jukehost.co.uk/tZhYGmOLQHkbClbSKKaVk3UTte0MHqRe",
+"https://audio.jukehost.co.uk/nddDdRJdaJHxw1LoDipS4u6YiFgu3KiN",
+"https://audio.jukehost.co.uk/zzuAEmviyWqcknkpp87PssAoADiOLWKg",
+"https://audio.jukehost.co.uk/g0MjfXUrfXdTDYlgJ0PvulbKgVb43jvS",
+"https://audio.jukehost.co.uk/LkHI5svHtv8R3TO3Zsmqzh05ZfvTsrTD",
+"https://audio.jukehost.co.uk/BknJK6hD9gmaG8mER6pX5xPzh7ep9yx5",
+"https://audio.jukehost.co.uk/NeiHHDgb9tAaFFvKJf69Jyg2x6Z78i2P"],
+["https://audio.jukehost.co.uk/FKP5vh1aO2VMzkiaeMAIR6nwWOIkTWlg",
+"https://audio.jukehost.co.uk/DcJWqPXLe6sAaNied6TUliYPNiHIcyfm",
+"https://audio.jukehost.co.uk/Ryvl6njcFXqtB9vPsHcSfKFJ0nXi7UUG",
+"https://audio.jukehost.co.uk/CCcqf5hipididwxpwmJzllEOxVeH02hD",
+"https://audio.jukehost.co.uk/ul48gNa4zx7qFdwNQgZ1Yzkqy6iEQnqf",
+"https://audio.jukehost.co.uk/FosCfsrXvJY0Ajbd93mXwfJ6E6Mu4tTr",
+"https://audio.jukehost.co.uk/YpZpAvaXbPU1fP5XJgsxKsC2lwV80nos",
+"https://audio.jukehost.co.uk/C3Aqidt5yrBptGGl63sXJRi14415OLRV",
+"https://audio.jukehost.co.uk/5zXFpCWjFwTAHgQVDLNYCYx5CqvR9v8E",
+"https://audio.jukehost.co.uk/VqCcl4CRtTtpY6SafsJbSTLRyQtogICm",
+"https://audio.jukehost.co.uk/zJBZQuR06tiEMAk8g8wituCy4Dd8ntlh"
+],
+[
+"https://audio.jukehost.co.uk/bJitmzcs0fGJ8XCTtM7PjAoapT2W2SFm",
+"https://audio.jukehost.co.uk/RUlRmvAGhQ5vshJKeSPefVoHATY4ctPr",
+"https://audio.jukehost.co.uk/vcGStSXNqAc9AvGAVwjqX7FLmfqxtWPP",
+"https://audio.jukehost.co.uk/ApBPF8wRi1E85CDbR5KMrCFMg9hkLg9u",
+"https://audio.jukehost.co.uk/yzOZ5aiZ4qU4stPuTbHkUM0qOyP0VVEa",
+"https://audio.jukehost.co.uk/jqulpMBglCLnI7fKNb1cIIF4w20ipIp4",
+"https://audio.jukehost.co.uk/zxTroVKiANohjVdLJossUiWREPnKUaOi",
+"https://audio.jukehost.co.uk/HNRs4cUZBJJNYJQypLqxo9ZeMsJpEtgR",
+"https://audio.jukehost.co.uk/I1u7hq00zuNcKxUr2OXGRcZudHWGtnqB",
+"https://audio.jukehost.co.uk/OpVoDq0bHJfX6zFyNHcEhU1hcETGXbdj",
+"https://audio.jukehost.co.uk/71g9HgeIcaWAab8g54cmsMVsgUyjUjgB",
+"https://audio.jukehost.co.uk/gntsbtGSUtRxdRPxRj8iUldDHGQcLZEc",
+"https://audio.jukehost.co.uk/rrF9gl71X2VqbumBGpfl2clbVX8JGRzJ",
+"https://audio.jukehost.co.uk/glJIlTPPngwVzo5jjjVOStAC31fvV1yE"
+
+],
+[
+"https://audio.jukehost.co.uk/4KfuQgQAnjJDfdvezxKcf03uLhATJZcq",
+"https://audio.jukehost.co.uk/OY0N3zazNfzdHQgxjFIYAq0aORBUxL0h",
+"https://audio.jukehost.co.uk/radZVDF1deauD4KY7akONtje53tRaVV6",
+"https://audio.jukehost.co.uk/6zUO432DHujNmPsGraauDuFBZwCnKoox",
+"https://audio.jukehost.co.uk/gM2CDksrNmMP9wMI8NBocaoyNwVFLTUT",
+"https://audio.jukehost.co.uk/jqGPzrTskGOZ6gxyQEksMnDO6wnoCcsV",
+"https://audio.jukehost.co.uk/4wB4ncGxfNxe7WEEFpfBX5gcuxLmYWfl",
+"https://audio.jukehost.co.uk/b8ug55avh6OnLp90A3SIZXKFIkPnCtql",
+"https://audio.jukehost.co.uk/7BSkiwioXEp5CHUKMrVlUSxkm5b3tP3O",
+"https://audio.jukehost.co.uk/6hx34hW54citIpVgSmARdc6HtJ8PgSXC",
+"https://audio.jukehost.co.uk/C1dp88wf0GHW1AngvXC0BKsssI6sR2Em",
+"https://audio.jukehost.co.uk/Fv0kgOCAw5ERVQFLkjVvnI80d1woY6bg"
+],
+["https://audio.jukehost.co.uk/Fx8UNMG2QRdZlBOoDXF12H15bGRWoLah",
+"https://audio.jukehost.co.uk/FWtY4lHaRuZYeDQSA72pPfFXfpneTP9Z",
+"https://audio.jukehost.co.uk/CYELpUFiqQSX3GKfLvDnbV360qxZbpvl",
+"https://audio.jukehost.co.uk/mU6d8fSLI2bDYyO1oPMmPne4vfk8lPN5",
+"https://audio.jukehost.co.uk/JxiFcTUoNpyHsQZEqzma3xg6B2Z8Ri6W",
+"https://audio.jukehost.co.uk/3H6yOSu0DN6GbugQFdlCOxMBB04NR5M6",
+"https://audio.jukehost.co.uk/oVeRXlcjte6RKUHour1AiknIh2XAzzbV",
+"https://audio.jukehost.co.uk/wmJNgCu07A7E0xV8RtOqg7pupF18Kt29",
+"https://audio.jukehost.co.uk/tQVTFgBOKvHbMzcovDPi2pFEOb3VsADJ",
+"https://audio.jukehost.co.uk/MPxfjCsZ7UUY7dzI92Xu3lmy35Kec8jS",
+"https://audio.jukehost.co.uk/RCsM7gjVDcPpfrKeDsOabJ3JKo8VrCCP",
+"https://audio.jukehost.co.uk/BxBg6jxQ3XbmvncAWgRfeiU2xJsCP9Ez",
+"https://audio.jukehost.co.uk/Jan48JkNOiFKueqvaSNwlZsFtO2Betns",
+"https://audio.jukehost.co.uk/PlPLOeCOAK4ilhyErpTlRXHDTIdFyijm",
+"https://audio.jukehost.co.uk/KN2cbub6W9OIyfw3z75aiwbb2tS3I7rH",
+"https://audio.jukehost.co.uk/21jcoCu35YwI2Cqghv6BKafs0z9KuIUK"],
+[
+"https://audio.jukehost.co.uk/1iq9xTpNqcwmxkaeyNbcmZ6jPs4thQF3",
+"https://audio.jukehost.co.uk/BWXKNaG9s8SFlwXdtU5y7qfInxif1qsP",
+"https://audio.jukehost.co.uk/OW61e8TyLAirWz4kkBbPPI3BxNgvntWI",
+"https://audio.jukehost.co.uk/idOJEZGmNDV4di1GCMdCAXQMMFFUwQn4",
+"https://audio.jukehost.co.uk/ZC4lmh0Ji0Og6JlQ8jgjL4jgiTI917d4",
+"https://audio.jukehost.co.uk/AAqYQGkeHMaGTQDn2HYMWHqJyllDMC1n",
+"https://audio.jukehost.co.uk/0TW9Yyj1NvP38g6wuYiJKxMxcpJRq5Pf",
+"https://audio.jukehost.co.uk/Wx18RaHgD8ja4I615ltfrP3Gutxh9aGt",
+"https://audio.jukehost.co.uk/uBlNb2t3jBsmCzcX8dclbcdlgxmwwVCm",
+"https://audio.jukehost.co.uk/gVBAwoSP3DFxGmDUWCee6aS474bAm8O4",
+"https://audio.jukehost.co.uk/cG0JwHtMzKMM312MLuKYY45xM1N9Xk8y",
+"https://audio.jukehost.co.uk/cdCbs2k0TPd3wKYW6yy6dVWdrssMZAUO",
+"https://audio.jukehost.co.uk/Gof5s44xeafjDNbq9HLVHoWw6M2OF5Jh",
+"https://audio.jukehost.co.uk/lOd5b05w7Rb8SqAhUXARvtR6E2FOBlnk",
+"https://audio.jukehost.co.uk/21jcoCu35YwI2Cqghv6BKafs0z9KuIUK"
+],
+[
+"https://audio.jukehost.co.uk/EM4lHGK8rRzZsmYRBAY9siS9RDAqJ4Ci",
+"https://audio.jukehost.co.uk/m3mTApR1Yvq7rZlE133n0OzRhMVZWgSv",
+"https://audio.jukehost.co.uk/cWOcLT24p1jPszxhA1Yd6yRuRONjklmr",
+"https://audio.jukehost.co.uk/BVgD3SfwclJI9uD35cRrWgOm9b1fhXOA",
+"https://audio.jukehost.co.uk/I1DS5OFyratJnqsvP8tKihM05uo47Nh6",
+"https://audio.jukehost.co.uk/nkk3XOf7gkJ15yNkYZcRa4ibE25GJUAC",
+"https://audio.jukehost.co.uk/5mvBUGGuEZg3cMlq5U4GuPrhuye40ouT",
+"https://audio.jukehost.co.uk/K0YuZbR7Fw8QdAYLZ0Ox1rlLpUzB8nE4",
+"https://audio.jukehost.co.uk/0c1lxIpivJ1nhFN1CAmDuEsGXmROWjVi",
+"https://audio.jukehost.co.uk/kMct2CdTtgA67FPPhZRvvgUDy0H6XFqM",
+"https://audio.jukehost.co.uk/0bkpgFr0hCyUwzbjwcsY4OlKYTowyh9D",
+"https://audio.jukehost.co.uk/JQPEx73801dVIvDNY1n32CSawpYuWhlP",
+"https://audio.jukehost.co.uk/wjMvOHVflwHn0pZosYK1L9YFgq9KoJbn",
+"https://audio.jukehost.co.uk/KXpXWSq5HqxfPU2yyAJyYR5Y6iaWf350",
+"https://audio.jukehost.co.uk/Ne9x5zFLbaFP8PErOem026d3Qm9DXVx1",
+"https://audio.jukehost.co.uk/ZwUxPIAVoUy4oAjelhlz4MqweLeqwMoV",
+"https://audio.jukehost.co.uk/cuUOY42URzNeQbhLbhpiukyqJRhxqKpG",
+"https://audio.jukehost.co.uk/auU3WoXYnLsiEZrU0RGnsCIcDVz20xy4",
+"https://audio.jukehost.co.uk/VzNRv7fXmevKSPVioLjU5mHyRKvDJIbG"
+]
+];
+
+are=[
+
+["https://i.pinimg.com/736x/23/cf/9a/23cf9acbd34420a882eb0926303e401b.jpg"],
+["https://i.pinimg.com/736x/26/c1/93/26c19379e91ce785dd1638a2165e6c27.jpg"],
+["https://i.pinimg.com/736x/e4/94/bc/e494bcac2da5b3f640d0d211947640ee.jpg"],
+["https://i.pinimg.com/564x/60/25/30/602530c5fef1e5b6260a575e32ebb77f.jpg"],
+["https://i.pinimg.com/564x/d1/da/40/d1da400afc1f8b029613180cd75db202.jpg"],
+["https://i.imgur.com/JITS44n.jpeg"],
+["https://is.zobj.net/image-server/v1/images?r=ULda32QV7ndzKjsaZYDB_bitMd_N9w3huRyNA2yfLYIWSjThZn_2CPdXgTkwJbIurSGrl-4OPcQqI44rvU_auehZYPdUFBZPyJTHi_YjUxrmC-T7kZrYA6JrAXdr6IjAd5Zp_dNAwVLmHRGVHbdd1K0y4T5ujEUjfWsl8tZF5IE0ZqWoXLJXgLkhEBo_G1Yac73QuPGWyEQaWXheW6Gc2O6_b8Mxdfjj6eCbfA"],
+["https://i.pinimg.com/736x/e3/e4/4e/e3e44eb05200cdc7e7d22dd4ffdfb546.jpg"],
+["https://i.pinimg.com/564x/39/be/b0/39beb0d6624d4c89dc350eb101f0cecc.jpg"],
+["https://i.pinimg.com/564x/a6/31/59/a63159445d34ea13a33aac451a551a35.jpg"],
+["https://i.pinimg.com/736x/5b/e2/77/5be2773681ffb60c8e367c69e367dc5f.jpg"],
+["https://i.pinimg.com/564x/d2/7a/79/d27a791e06481feb588ff76c9f64a581.jpg"]
+]; 
+
+if(Math.floor(Math.random() * 4) + 1==2){
+var audio =new Audio(ore[parseInt(localStorage.getItem("wall"))][Math.floor(Math.random()*ore[parseInt(localStorage.getItem("wall"))].length)]);
+audio.play();
+}
+
+
+
+
+
+if(localStorage.getItem("wall")==null ){
+localStorage.setItem("wall", 0);
+}
+localStorage.setItem("highscore",parseInt(localStorage.getItem("highscore"))+1) ;
+
+
+if(parseInt(localStorage.getItem("highscore"))%3==0){
+localStorage.setItem("color",parseInt(localStorage.getItem("color"))+1) ;
+if(parseInt(localStorage.getItem("color"))==10){
+  
+localStorage.setItem("wall", Math.floor((Math.random()*12))) 
+ 
+var audio =new Audio(ore[parseInt(localStorage.getItem("wall"))][Math.floor(Math.random()*ore[parseInt(localStorage.getItem("wall"))].length)]);
+audio.play();
+
+localStorage.setItem("color", 0);
+localStorage.setItem("highscore", 0);
+
+
+}
+
+}
+
+
+document.body.style="background-image:url('"+are[parseInt(localStorage.getItem("wall"))][Math.floor(Math.random()*are[parseInt(localStorage.getItem("wall"))].length)]+"');background-size:cover;background-repeat: no-repeat;"
+
+var linkk = document.getElementById("stat");
+linkk.innerHTML=localStorage.getItem("highscore");
+
+
+
+
+
+
+
+
+var content=document.getElementById("word").innerHTML;
+
+
+var list=content.split('');
+
+var link = document.getElementById("link");
+
+link.href=""+list[0];
+
+for(var i=0;i<list.length;i++){
+var element = document.createElement("a");
+element.innerHTML=list[i];
+element.href="https://kanji.koohii.com/study/kanji/"+list[i];
+element.setAttribute("style", "text-decoration: none; color:#FFFFFF");
+   
+worr.appendChild(element);
+
+
+}
+document.getElementById("word").innerHTML="";
+for(var i=0;i<list.length;i++){
+var element = document.createElement("a");
+element.innerHTML=list[i];
+element.href="https://www.wanikani.com/kanji/"+list[i];
+element.setAttribute("style", "text-decoration: none; color:#FFFFFF");
+   
+document.getElementById("word").appendChild(element);
+
+
+}
+
+
+
+</script>
+
+
+
+<div style='font-size: 20px;'>{{Hint}}</div>
