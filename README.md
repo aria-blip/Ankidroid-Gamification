@@ -7,3 +7,4 @@ when you get 3 answers right after each othere the background of teh card deck c
 notice :
 if you use another deck you have to change the parameters to the decks so in my case i got the word of teh card with <span id="word" style="">{{Word}}</span>
  but you may have another keyword 
+ 
